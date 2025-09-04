@@ -15,13 +15,26 @@ form.addEventListener("submit", async function (event) {
 async function loadFromDatabase() {
   let dataFromDatabase = await fetch("http://localhost:8080/get-data-from-db");
   let parsedData = await dataFromDatabase.json();
+  let colour;
+  let textContent;
   for (let i = 0; i < parsedData.length; i++) {
-    const dbInfoContainer = document.createElement("p");
-    dbInfoContainer.className = "dbInfoItem";
-    dbInfoContainer.id = `${i}`;
-    dbInfoContainer.textContent = `${parsedData[i].name} ${parsedData[i].favnum} ${parsedData[i].favcolour}  ${parsedData[i].additionalinfo}`;
-    const container = document.querySelector("#databaseInfoContainer");
-    container.appendChild(dbInfoContainer);
+    createConfiguredElement("p", parsedData[i].name, false, i);
+    createConfiguredElement("p", parsedData[i].favnum, false, i);
+    createConfiguredElement("div", false, parsedData[i].favcolour, i);
+    createConfiguredElement("p", parsedData[i].additionalinfo, false, i);
+  }
+}
+function createConfiguredElement(elementType, textContent, colour, i) {
+  const dbInfoContainer = document.createElement(`${elementType}`);
+  dbInfoContainer.className = `dbInfoItem`;
+  dbInfoContainer.id = `${i}`;
+
+  const container = document.querySelector("#databaseInfoContainer");
+  container.appendChild(dbInfoContainer);
+  if (textContent) {
+    dbInfoContainer.textContent = `${textContent}`;
+  } else if (colour) {
+    dbInfoContainer.style.backgroundColor = `${colour}`;
   }
 }
 loadFromDatabase();

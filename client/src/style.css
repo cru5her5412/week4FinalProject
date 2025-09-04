@@ -7,11 +7,11 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  max-height: 60%;
+  height: 60%;
 }
 .partOfForm {
   width: 70%;
-  font-size: 2rem;
+  font-size: 1rem;
   margin: 1%;
 }
 input {
@@ -20,15 +20,23 @@ input {
 h1 {
   display: flex;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2rem;
   height: 10%;
 }
-#databaseInfoContainer {
-  height: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  flex-direction: column;
-  font-size: 2rem;
-  overflow-y: scroll;
+.dbInfoItem {
+  border: black, 1px, solid;
 }
+#databaseInfoContainer {
+  height: 30%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-left: 15%;
+  font-size: 2rem;
+  overflow: scroll;
+  max-width: 70%;
+}
+/* @media (max-width: 500px) {
+  #inputForm {
+    height: 50%;
+  }
+} */
