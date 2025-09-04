@@ -9,15 +9,18 @@
   </head>
   <body>
     <form id="inputForm">
-      <label for=""></label>
-      <input type="text" />
-      <label for=""></label>
-      <input type="text" />
-      <label for=""></label>
-      <input type="text" />
-      <label for=""></label>
-      <input type="text" />
+      <label for="name">What is your name?</label>
+      <input name="name" type="text" required />
+      <label for="favNum">What is your favourite number?</label>
+      <input name="favNum" type="number" required />
+      <label for="favColour">What is your favourite colour?</label>
+      <input name="favColour" type="color" required />
+      <label for="additionalInfo">Any additional notes?</label>
+      <input name="additionalInfo" type="text" />
       <button type="submit">Submit your message!</button>
     </form>
+    <section>
+      <div id="databaseInfoContainer"></div>
+    </section>
   </body>
 </html>
