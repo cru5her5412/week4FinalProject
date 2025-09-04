@@ -3,7 +3,8 @@ form.addEventListener("submit", async function (event) {
   event.preventDefault();
   let formTemplate = new FormData(form);
   let formData = Object.fromEntries(formTemplate);
-  let response = await fetch("https://week4finalproject.onrender.com/", {
+  // final address: https://week4finalproject.onrender.com/
+  let response = await fetch("http:/localhost:8080", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,16 +13,14 @@ form.addEventListener("submit", async function (event) {
   });
 });
 async function loadFromDatabase() {
-  let dataFromDatabase = await fetch(
-    "https://week4finalproject.onrender.com/get-data-from-db"
-  );
-  parsedData = dataFromDatabase.json();
+  let dataFromDatabase = await fetch("http://localhost:8080/get-data-from-db");
+  let parsedData = await dataFromDatabase.json();
   for (let i = 0; i < parsedData.length; i++) {
-    dbInfoContainer = document.createElement("p");
-    dbInfoContainer.className = "dbInfoContainer";
+    const dbInfoContainer = document.createElement("p");
+    dbInfoContainer.className = "dbInfoItem";
     dbInfoContainer.id = `${i}`;
-    dbInfoContainer.textContent = `${parsedData[i].name} ${parsedData[i].favcolour} ${parsedData[i].name} ${parsedData[i].favnumber}`;
-    container = document.getElementById("databaseInfoContainer");
+    dbInfoContainer.textContent = `${parsedData[i].name} ${parsedData[i].favnum} ${parsedData[i].favcolour}  ${parsedData[i].additionalinfo}`;
+    const container = document.querySelector("#databaseInfoContainer");
     container.appendChild(dbInfoContainer);
   }
 }

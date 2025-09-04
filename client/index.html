@@ -4,20 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Full-Stack App</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <script type="module" src="./src/app.js" defer></script>
   </head>
   <body>
+    <h1>My Questionnaire</h1>
     <form id="inputForm">
-      <label for="name">What is your name?</label>
-      <input name="name" type="text" required />
-      <label for="favNum">What is your favourite number?</label>
-      <input name="favNum" type="number" required />
-      <label for="favColour">What is your favourite colour?</label>
-      <input name="favColour" type="color" required />
-      <label for="additionalInfo">Any additional notes?</label>
-      <input name="additionalInfo" type="text" />
-      <button type="submit">Submit your message!</button>
+      <label class="name partOfForm" for="name">What is your name?</label>
+      <input
+        id="name"
+        class="name partOfForm"
+        name="name"
+        type="text"
+        required
+      />
+      <label class="favNum partOfForm" for="favNum"
+        >What is your favourite number?</label
+      >
+      <input
+        id="favNum"
+        class="favNum partOfForm"
+        name="favNum"
+        type="number"
+        required
+      />
+      <label class="favColour partOfForm" for="favColour"
+        >What is your favourite colour?</label
+      >
+      <input
+        id="favColour"
+        class="favColour partOfForm"
+        name="favColour"
+        type="color"
+        required
+      />
+      <label class="additionalInfo partOfForm" for="additionalInfo"
+        >Any additional notes?</label
+      >
+      <input
+        id="additionalInfo"
+        class="additionalInfo partOfForm"
+        name="additionalInfo"
+        type="text"
+      />
+      <button class="submit partOfForm" type="submit">
+        Submit your message!
+      </button>
     </form>
     <section>
       <div id="databaseInfoContainer"></div>
