@@ -4,7 +4,8 @@ form.addEventListener("submit", async function (event) {
   let formTemplate = new FormData(form);
   let formData = Object.fromEntries(formTemplate);
   // final address: https://week4finalproject.onrender.com/
-  let response = await fetch("http:/localhost:8080", {
+  //temp address:http:/localhost:8080
+  let response = await fetch("https://week4finalproject.onrender.com/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,7 +14,9 @@ form.addEventListener("submit", async function (event) {
   });
 });
 async function loadFromDatabase() {
-  let dataFromDatabase = await fetch("http://localhost:8080/get-data-from-db");
+  let dataFromDatabase = await fetch(
+    "https://week4finalproject.onrender.com/get-data-from-db"
+  );
   let parsedData = await dataFromDatabase.json();
   let colour;
   let textContent;
