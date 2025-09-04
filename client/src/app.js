@@ -13,11 +13,14 @@ form.addEventListener("submit", async function (event) {
   console.log(response);
 });
 async function loadFromDatabase() {
-  let dataFromDatabase = fetch("http://localhost:8080/get-data-from-db");
+  let dataFromDatabase = await fetch("http://localhost:8080/get-data-from-db");
+  console.log(await dataFromDatabase.json());
   for (let i = 0; i < dataFromDatabase.length; i++) {
     dbInfoContainer = document.createElement("p");
     dbInfoContainer.className = "dbInfoContainer";
-    dbInfoContainer.id = i;
+    dbInfoContainer.id = `${i}`;
+    container = document.getElementById("databaseInfoContainer");
+    container.appendChild(dbInfoContainer);
   }
 }
 loadFromDatabase();

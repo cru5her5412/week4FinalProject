@@ -29,4 +29,6 @@ app.get("/get-data-from-db", async function (request, response) {
   let dbContents = await db.query(
     `SELECT name, favNum, favColour, additionalInfo FROM week4FinalProject`
   );
+  console.log(dbContents.rows);
+  response.json(dbContents.rows);
 });
