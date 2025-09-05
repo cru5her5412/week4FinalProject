@@ -27,16 +27,22 @@ h1 {
   border: black, 1px, solid;
 }
 #databaseInfoContainer {
-  height: 30%;
+  max-height: 10%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-left: 15%;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 50px 1fr 1fr;
   font-size: 2rem;
-  overflow: scroll;
-  max-width: 70%;
+  overflow-y: scroll;
+  width: 100%;
 }
 /* @media (max-width: 500px) {
   #inputForm {
     height: 50%;
   }
 } */
+img {
+  height: 50px;
+  border: none;
+}
+.spacer {
+  border: none;
+}
